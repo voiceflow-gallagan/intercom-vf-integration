@@ -1,0 +1,27 @@
+{
+  "name": "integration-intercom-voiceflow",
+  "version": "1.0.0",
+  "description": "Intercom Integration for Voiceflow DM API",
+  "main": "app.js",
+  "scripts": {
+    "debug": "env TZ='Europe/Paris' && node app.js",
+    "start": "pm2 restart ecosystem.config.cjs --exp-backoff-restart-delay=100 --log pm2log --env production",
+    "test": "pm2 restart ecosystem.config.cjs --log pm2log; pm2 logs integration-intercom",
+    "stop": "pm2 stop ecosystem.config.cjs"
+  },
+  "author": "Voiceflow",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "html-to-text": "^8.2.1",
+    "intercom-client": "^3.1.5",
+    "request": "^2.88.2",
+    "simple-json-db": "^2.0.0"
+  },
+  "engines": {
+    "node": "18.4.0"
+  }
+}
