@@ -58,7 +58,15 @@ app.get('/', (req, res) => {
   })
 })
 
-app.post('/webhook', async (req, res) => {
+app.get('/start', async (req, res) => {
+  const response = await Intercom.conversations.create({
+    userId: process.env.INTERCOM_USER_ID,
+    body: 'Hi there!',
+  })
+  res.json({ message: 'ok' })
+})
+
+app.all('/webhook', async (req, res) => {
   /* You can debug Intercom events here
       console.log('Headers:' + JSON.stringify(req.headers, null, 3))
       console.log('Body:' + JSON.stringify(req.body, null, 3))
